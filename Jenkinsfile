@@ -21,14 +21,14 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/YassineAouididi/gestion-bibliotheque.git'
+                git branch: 'main', url: 'https://github.com/YassineAouididi/gestion-biblio.git'
             }
         }
         stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('SonarQube-Server') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=gestion-bibliotheque \
-                    -Dsonar.projectKey=gestion-bibliotheque'''
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=gestion-biblio-CI \
+                    -Dsonar.projectKey=gestion-biblio-CI'''
                 }
             }
         }
