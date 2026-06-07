@@ -1,10 +1,11 @@
 pipeline {
     agent any
     tools {
-        jdk 'jdk21'
         nodejs 'node20'
     }
     environment {
+        JAVA_HOME = '/opt/java/openjdk'
+        PATH = "/opt/java/openjdk/bin:${env.PATH}"
         SCANNER_HOME = tool 'sonar-scanner'
         APP_NAME = "gestion-bibliotheque"
         RELEASE = "1.0.0"
